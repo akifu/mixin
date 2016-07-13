@@ -1,0 +1,192 @@
+
+@mixin flexbox
+ {
+ display:-webkit-box; // old
+ display:-moz-box; // old
+ display:-ms-flexbox; // ie
+ display:-webkit-flex; // new
+ display:flex; // new
+ }
+
+ @mixin space-between{
+     -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+ }
+
+ @mixin flex-end {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: justify;
+    -moz-box-pack: justify;
+    justify-content: flex-end;
+}
+
+ @mixin wrap{
+    -moz-box-wrap: wrap;
+    -webkit-box-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flexbox-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+ }
+@mixin flex-center{
+  -webkit-justify-content: center; /* Safari */
+
+
+
+
+
+
+  justify-content:        center;
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@mixin border-radius($radius) {
+
+
+
+
+
+
+  -webkit-border-radius: $radius;
+
+
+
+
+
+
+    -moz-border-radius: $radius;
+
+
+
+
+
+
+      -ms-border-radius: $radius;
+
+
+
+
+
+
+          border-radius: $radius;
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+@mixin opacity($opacity) {
+
+
+
+
+
+
+    opacity: $opacity;
+
+
+
+
+
+
+    filter: alpha(opacity=($opacity * 100));
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*マウスオーバーで透過させる*/
+            ul img{
+                @include hoverop_out;
+            }
+            a:hover ul img{
+            @include hoverop_over;
+            }
+
+@mixin hoverop_over
+{
+opacity: .6;
+-webkit-opacity: .6;
+-moz-opacity: .6;
+filter: alpha(opacity=60);    /* IE lt 8 */
+-ms-filter: "alpha(opacity=60)"; /* IE 8 */
+}
+
+@mixin hoverop_out
+{
+-webkit-transition: opacity 0.3s ease-out;
+-moz-transition: opacity 0.3s ease-out;
+-ms-transition: opacity 0.3s ease-out;
+transition: opacity 0.3s ease-out;
+}
+
+@include space-between;
+@include flexbox;
+@include wrap;
+@include flex-end;
+@include flex-center;
+
+@include border-radius(4px);
+
+@include vertical-align();
+
+@include hoverop_out;
+@include hoverop_over;
+
+@include opacity(0.8);
+@include inline-block;
